@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>SignUp</h1>
+                    <h6>Register Your Info</h6>
+                </div>
+                
+                    <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">User Name</label>
+                            <input formControlName="UserName" type="text" class="form-control" id="exampleInputPassword1"><br>
+                            <span class="text-danger" *ngIf="signupForm.controls['UserName'].dirty && signupForm.hasError('required','UserName')"> *User Name Is Required </span>
+                          </div>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Email address</label>
+                          <input formControlName="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"><br>
+                          <span class="text-danger" *ngIf="signupForm.controls['Email'].dirty && signupForm.hasError('required','Email')"> *Email Is Required </span>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input formControlName="Password" type="password" class="form-control" id="exampleInputPassword1"><br>
+                          <span class="text-danger" *ngIf="signupForm.controls['Password'].dirty && signupForm.hasError('required','Password')"> *Password Is Required </span>
+                          
+                        </div>
+                        
+                        <button type="submit" [disabled]="!signupForm.valid" class="btn btn-primary mb-2">SignUp</button>
+                      </form>
+                      <a style="color:white;margin-top: 10px;" routerLink="/login"> Already registered ? click here to login</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
